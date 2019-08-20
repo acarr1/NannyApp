@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    {% load static %}
+    <title>Profile</title>
+    <style>
+        body {
+            background-image: url("exam_app\static\exam_app\img\nanny+icon.png");
+            background-color: #cccccc;
+        }
+
+        img {
+            width:60%;
+        }
+
+        .container1 {
+            display: inline-block;
+            vertical-align: top;
+        }
+
+        .card-body {
+            font-size: 20px;
+            padding: 4px;
+            display: block;
+            vertical-align: right;
+        }
+
+        .interactions {
+            display: inline-block;
+            vertical-align: top;
+        }
+    </style>
+</head>
+
+<body>
+    <div class='container-fluid mt-3'>
+        <form action="/profile" method="POST">
+            <nav class="navbar navbar-expand-lg navbar-dark bg-dark justify-content-between p-4">
+                <a class="navbar-brand " href="#">Hello, {{request.session.user_name}} ! </a>
+                <div>
+                    <a href="/book/new">Create A New Booking</a>|
+                    <a href="/dash">Dashboard</a>|
+                    <a href="/logout">LOGOUT</a> |
+                </div>
+        </form>
+    </div>
+    <div class="container mt-3 p-2">
+    <h2>{{request.session.user_name}}</h2>
+        <div class="row">
+            <div class="pic col d-inline-block mt-2 p-2">
+                <img src="{% static 'exam_app/img/holder.png' %}" alt="holder">
+            </div>
+            <div class="container col d-inline-block">
+                <h2>Certifications:</h2>
+                <p>CPR and first aid</p>
+                <p>Water-safety certification</p>
+                <p>Infant care classes and certification</p>
+                <p>Nanny basic skills assessment</p>
+                <p>Professional nanny certification</p>
+                <p>Driver's license</p>
+                <p>Nutrition and cooking courses</p>
+                <p>Fitness education</p>
+            </div>
+        </div>
+    </div>
+
+
+
+</body>
+
+</html>

@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+        <style>
+                body {
+                    background-image: url("exam_app\static\exam_app\img\nanny+icon.png");
+                    background-color: #cccccc;
+                }
+            </style>
+    <title>Make A Booking</title>
+</head>
+
+<body>
+    <div class="container bg-secondary mt-4 p-2">
+            {% if messages %}
+            <div class="card mb-4 text-white bg-danger w-50 mx-auto">
+                <h5 class="card-header">Error</h5>
+                <div class="card-body">
+                    {% for message in messages %}
+                    {% if message.tags %}
+                    <p class="card-text">{{ message }}</p>
+                    {% endif %}
+                    {% endfor %}
+                </div>
+            </div>
+            {% endif %}
+            <div class="card border-primary w-50 mx-auto">
+                <h3 class="card-header">Create A Booking</h3>
+                <div class="card-body text-secondary">
+                    <form action="/book/process" method="POST">
+                        {% csrf_token %}
+                        <div class="form-group">
+                            <label for="address">Address:</label>
+                            <input type="text" class="form-control" name="address" placeholder="Enter the address...">
+                        </div>
+                        <div class="form-group">
+                            <label for="phone">Phone Number:</label>
+                            <input type="text" class="form-control" name="phone" placeholder="Enter your phone number...">
+                        </div>
+                        <div class="form-group">
+                            <label for="start">Enter your start date and time for your booking:</label>
+                            <input id="start" type="datetime-local" name="start" value="2017-06-01T08:30">
+                        </div>
+                        <div class="form-group">
+                            <label for="end">Enter your end date and time for your booking:</label>
+                            <input id="end" type="datetime-local" name="end" value="2017-06-01T08:30">
+                        </div>
+                        <div class="form-group">
+                            <label for="notes">Notes:</label>
+                            <input type="text" class="form-control" name="notes"
+                                placeholder="Anything you would like for us to know?">
+                        </div>
+                        <footer>
+                            <a href="/dash" class="btn btn-primary  mt-1">Go Back</a>
+                            <button class="btn btn-primary  mt-1">Submit</button>
+                        </footer>
+                    </form>
+                </div>
+            </div>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <style>
+        body {
+            background-image: url("exam_app\static\exam_app\img\nanny+icon.png");
+            background-color: #cccccc;
+        }
+
+        img {
+            width: 60%;
+        }
+
+        .container1 {
+            display: inline-block;
+            vertical-align: top;
+        }
+    </style>
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="container-fluid">
+        <nav class="navbar navbar-expand-lg navbar-light bg-dark justify-content-between mt-2 p-2 ">
+            <a class="navbar-brand" href="#">Welcome, {{user.first_name}} </a>
+            <div>
+                <a href="/dash">DASHBOARD</a> |
+                <a href="/logout">LOGOUT</a>
+            </div>
+        </nav>
+        <div class=" container-fluid mt-3 p-2 w-50 mx-auto">
+            <h2>Booking Details</h2>
+            <div class="border p-3">
+                <p> Address: {{book.address}}</p>
+                <p> Phone Number: {{book.phone}}</p>
+                <p> Start: {{book.start}}</p>
+                <p> End: {{book.end}}</p>
+                <p> Notes: {{book.notes}}</p>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

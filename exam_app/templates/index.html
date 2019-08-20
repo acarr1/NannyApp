@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Book A Nanny</title>
+    <meta name="description" content="Coding Dojo assignment for Full Stack Django.">
+    <meta name="author" content="Narciso Lobo">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+        integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    {% load static %}
+    <style>
+        img {
+            width:100%;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container-fluid bg-secondary">
+        <div class="container bg-primary p-4 w-50">
+            {% if messages %}
+            <div class="card mb-4 text-white bg-danger ">
+                <h5 class="card-header">Error</h5>
+                <div class="card-body">
+                    {% for message in messages %}
+                    {% if message.tags %}
+                    <p class="card-text">{{ message }}</p>
+                    {% endif %}
+                    {% endfor %}
+                </div>
+            </div>
+            {% endif %}
+            <div class="card-deck">
+                <div class="card border-primary">
+                    <div class="class p-3 ">
+                        <h2>Welcome to Book A Nanny!</h2>
+                    </div>
+                    <h3 class="card-header">REGISTER</h3>
+                    <div class="card-body text-secondary">
+                        <form action="/register" method="POST">
+                            {% csrf_token %}
+                            <div class="form-group">
+                                <label for="first_name">First Name:</label>
+                                <input type="text" class="form-control" name="first_name" id="first_name">
+                            </div>
+                            <div class="form-group">
+                                <label for="last_name">Last Name:</label>
+                                <input type="text" class="form-control" name="last_name" id="last_name">
+                            </div>
+                            <div class="form-group">
+                                <label for="email">Email Address:</label>
+                                <input type="text" class="form-control" name="email" id="email">
+                            </div>
+                            <div class="form-group">
+                                <label for="password">Password:</label>
+                                <input type="password" class="form-control" name="password" id="password">
+                            </div>
+                            <div class="form-group">
+                                <label for="password_confirm">Confirm Password:</label>
+                                <input type="password" class="form-control" name="password_confirm"
+                                    id="password_confirm">
+                            </div>
+                            <footer>
+                                <button type="submit" class="btn btn-primary btn-block mt-1">REGISTER</button>
+                            </footer>
+                        </form>
+                    </div>
+                </div>
+                <div class="card border-primary">
+                    <div class="class p-3 ">
+                        <h2>Welcome back, please log-in!</h2>
+                    </div>
+                    <h3 class="card-header">LOGIN</h3>
+                    <div class="card-body text-secondary">
+                        <form action="/login" method="POST">
+                            {% csrf_token %}
+                            <div class="form-group">
+                                <label for="login_email">Email:</label>
+                                <input type="email" class="form-control" name="login_email" id="login_email">
+                            </div>
+                            <div class="form-group">
+                                <label for="login_password">Password:</label>
+                                <input type="password" class="form-control" name="login_password" id="login_password">
+                            </div>
+                            <footer>
+                                <button type="submit" class="btn btn-primary btn-block mt-1">LOG IN</button>
+                            </footer>
+                            <div class="pic mt-2 p-2">
+                                <img src="{% static 'exam_app/img/nannypic.jpg' %}" alt="nannypic">
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+</body>
+
+</html>
